@@ -3,64 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Master</title>
+    <title>Quiz Master - Login & Signup</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f4f4f9;
+            background: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #999;
             text-align: center;
         }
-        header {
-            background: #4a4aff;
-            color: white;
-            padding: 20px 0;
-            font-size: 30px;
-            font-weight: bold;
+
+        h2 {
+            color: #4a4aff;
+            margin-bottom: 15px;
         }
-        .container {
-            margin-top: 50px;
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #bbb;
         }
+
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 20px;
+            width: 100%;
+            padding: 12px;
             background: #4a4aff;
             color: white;
-            text-decoration: none;
-            font-size: 20px;
-            border-radius: 8px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
             transition: 0.3s;
         }
+
         .btn:hover {
             background: #0000cc;
         }
-        footer {
-            margin-top: 40px;
+
+        .switch {
+            margin-top: 12px;
+            color: #4a4aff;
+            cursor: pointer;
             font-size: 14px;
-            color: #888;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        Quiz Master
-    </header>
-
     <div class="container">
-        <h2>Welcome to Quiz Master!</h2>
-        <p>Select an option to begin</p>
 
-        <a href="start-quiz.html" class="btn">Start Quiz</a>
-        <a href="instructions.html" class="btn">Instructions</a>
-        <a href="about.html" class="btn">About</a>
+        <!-- LOGIN FORM -->
+        <div id="loginForm">
+            <h2>Login</h2>
+
+            <select>
+                <option value="student">Student Login</option>
+                <option value="staff">Staff Login</option>
+            </select>
+
+            <input type="text" placeholder="User ID">
+            <input type="password" placeholder="Password">
+
+            <button class="btn">Login</button>
+
+            <p class="switch" onclick="showSignup()">Don't have an account? Sign Up</p>
+        </div>
+
+
+        <!-- SIGNUP FORM -->
+        <div id="signupForm" style="display:none;">
+            <h2>Create Account</h2>
+
+            <select>
+                <option value="student">Register as Student</option>
+                <option value="staff">Register as Staff</option>
+            </select>
+
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email ID">
+            <input type="text" placeholder="Create User ID">
+            <input type="password" placeholder="Create Password">
+            <input type="password" placeholder="Confirm Password">
+
+            <button class="btn">Sign Up</button>
+
+            <p class="switch" onclick="showLogin()">Already have an account? Login</p>
+        </div>
+
     </div>
 
-    <footer>
-        © 2025 Quiz Master. All rights reserved.
-    </footer>
+    <script>
+        function showSignup() {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("signupForm").style.display = "block";
+        }
+
+        function showLogin() {
+            document.getElementById("signupForm").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
